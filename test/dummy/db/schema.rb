@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_11_01_225216) do
+ActiveRecord::Schema[7.2].define(version: 2024_11_02_221239) do
   create_table "timetracker_tasks", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "timetracker_timers", force: :cascade do |t|
+    t.integer "timetracker_task_id", null: false
+    t.datetime "started_at", null: false
+    t.datetime "stopped_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["timetracker_task_id"], name: "index_timetracker_timers_on_timetracker_task_id"
+  end
+
+  add_foreign_key "timetracker_timers", "timetracker_tasks"
 end

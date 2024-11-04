@@ -1,0 +1,10 @@
+<div>
+  <%= timer.started_at %>
+  <% if timer.stopped_at %>
+    - <%= timer.stopped_at %>
+    # <%= Time.at(timer.duration_in_seconds).utc.strftime("%H:%M:%S") %>
+  <% end %>
+  <% if !timer.stopped_at %>
+    <%= button_to "Stop", timer_path(timer), method: :patch %>
+  <% end %>
+</div>

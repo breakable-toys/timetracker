@@ -1,0 +1,10 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+dance_one:
+  task: dance
+  started_at: 2024-11-02 17:12:39
+  stopped_at: 2024-11-02 17:14:39
+
+dance_two:
+  task: dance
+  started_at: 2024-11-02 18:13:39

@@ -7,6 +7,7 @@ module Timetracker
     end
 
     def show
+      @timers = @task.timers
     end
 
     def new
@@ -41,7 +42,7 @@ module Timetracker
 
     private
       def set_task
-        @task = Task.find(params[:id])
+        @task = Timetracker::Task.find(params[:id])
       end
 
       def task_params
