@@ -1,7 +1,7 @@
 module Timetracker
   class TimersController < ApplicationController
     before_action :set_task, only: %i[ create ]
-    before_action :set_timer, only: %i[ update ]
+    before_action :set_timer, only: %i[ update destroy ]
 
     def create
       @timer = @task.timers.new({ started_at: Time.now })
@@ -21,6 +21,11 @@ module Timetracker
       else
         redirect_to @timer.task, alert: "An error occurred and timer was not stopped.", status: :unprocessable_entity
       end
+    end
+
+    def destroy
+      @timer.destroy!
+      redirect_to @timer.task, notice: "Timer was successfully destroyed.", status: :see_other
     end
 
     private
