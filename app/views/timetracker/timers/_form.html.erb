@@ -1,0 +1,14 @@
+<%= form_with(model: timer) do |form| %>
+  <div>
+    <%= form.label :started_at, style: "display: block" %>
+    <%= form.datetime_select :started_at, { include_seconds: true } %>
+  </div>
+  <div>
+    <%= form.label :stopped_at, style: "display: block" %>
+    <%= form.datetime_select :stopped_at, { include_seconds: true } %>
+  </div>
+  
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

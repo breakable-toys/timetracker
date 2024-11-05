@@ -1,0 +1,11 @@
+<% content_for :title, "Editing timer" %>
+
+<h1>Editing timer</h1>
+
+<%= render "form", timer: @timer %>
+
+<br>
+
+<div>
+  <%= link_to "Back to task", @timer.task %>
+</div>

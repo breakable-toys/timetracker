@@ -28,6 +28,19 @@ module Timetracker
       assert_not_nil @timer.duration_in_seconds
     end
 
+    test "should get edit" do
+      get edit_timer_url(@timer)
+      assert_response :success
+    end
+
+    test "should update timer" do
+      patch timer_url(@timer), params: { timer: { stopped_at: 10.seconds.since(@timer.started_at) } }
+      assert_redirected_to task_url(@timer.task)
+
+      @timer.reload
+      assert_equal 10, @timer.duration_in_seconds
+    end
+
     test "should destroy timer" do
       assert_difference("Timer.count", -1) do
         delete timer_url(@timer)
