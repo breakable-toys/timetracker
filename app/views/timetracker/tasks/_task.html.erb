@@ -1,5 +1,6 @@
 <div id="<%= dom_id task %>">
   <p>
     <%= link_to_unless_current task.name, task %>
+    <%= seconds_to_human(task.duration_in_seconds) %>
   </p>
 </div>

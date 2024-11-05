@@ -23,7 +23,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_02_221239) do
     t.datetime "stopped_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["timetracker_task_id"], name: "index_timetracker_timers_on_timetracker_task_id"
+    t.index [ "timetracker_task_id" ], name: "index_timetracker_timers_on_timetracker_task_id"
   end
 
   add_foreign_key "timetracker_timers", "timetracker_tasks"

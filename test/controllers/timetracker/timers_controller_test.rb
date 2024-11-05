@@ -18,14 +18,14 @@ module Timetracker
     end
 
     test "should stop running timer" do
-      assert_nil @timer.duration_in_seconds
+      assert_nil @timer.stopped_at
 
       assert_no_difference("Timer.count") do
         patch timer_url(@timer)
       end
 
       @timer.reload
-      assert_not_nil @timer.duration_in_seconds
+      assert_not_nil @timer.stopped_at
     end
 
     test "should get edit" do

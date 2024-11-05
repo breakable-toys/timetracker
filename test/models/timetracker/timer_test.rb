@@ -14,8 +14,10 @@ module Timetracker
       assert_equal 120, @timer.duration_in_seconds
     end
 
-    test ".duration_in_seconds is nil if timer is still running" do
-      assert_nil timetracker_timers(:dance_two).duration_in_seconds
+    test "calculate duration in seconds if timer is running" do
+      Timecop.freeze(10.seconds.after(@timer.started_at)) do
+        assert 10, timetracker_timers(:dance_two).duration_in_seconds
+      end
     end
   end
 end
