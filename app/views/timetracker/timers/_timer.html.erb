@@ -1,0 +1,14 @@
+<div>
+  <%= timer.started_at %>
+  <% if timer.stopped_at %>
+    - <%= timer.stopped_at %>
+    # <%= seconds_to_human(timer.duration_in_seconds) %>
+  <% end %>
+  <% if timer.stopped_at %>
+    <%= link_to "Edit", edit_timer_path(timer) %>
+    <%= button_to "Delete", timer_path(timer), method: :delete %>
+  <% end %>
+  <% if !timer.stopped_at %>
+    <%= button_to "Stop", timer_path(timer), method: :patch %>
+  <% end %>
+</div>
